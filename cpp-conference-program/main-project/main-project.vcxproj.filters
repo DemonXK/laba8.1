@@ -27,6 +27,9 @@
     <ClCompile Include="sort.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="process.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="conference_entry.h">
@@ -42,6 +45,12 @@
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="sort.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="processing.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="conference_talk.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
