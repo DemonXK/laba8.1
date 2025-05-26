@@ -1,6 +1,11 @@
 #pragma once
 #include <vector>
-#include "conference_talk.h"
+#include <string>
+#include "conference_entry.h"
 
-int findLongestTalkDuration(const std::vector<ConferenceTalk>& talks);
-std::string formatDuration(int minutes);  // доп. функция форматирования
+int findLongestTalkDuration(const std::vector<ConferenceEntry>& entries);
+std::string formatDuration(int minutes);
+int parseTimeToMinutes(const std::string& timeStr);
+
+
+

@@ -1,16 +1,20 @@
 ﻿#include "file_reader.h"
 #include "filters.h"
 #include "sort.h"
+#include "process.h"
+#include "processing.h"
 #include <iostream>
 
 int main() {
     setlocale(LC_ALL, "RU");
+
     std::vector<ConferenceEntry> entries = readDataFromFile("data.txt");
 
     std::cout << "Программа конференции\n";
     std::cout << "1. Все доклады Иванова Ивана Ивановича\n";
     std::cout << "2. Все доклады длительностью > 15 минут\n";
     std::cout << "3. Сортировка докладов\n";
+    std::cout << "4. Самый длинный доклад в формате чч:мм\n";  // ← добавили пункт 4
     std::cout << "Выберите действие: ";
 
     int choice;
@@ -50,6 +54,11 @@ int main() {
             std::cout << p->lastName << " " << p->firstName << " " << p->middleName
                 << " | " << p->topic << "\n";
         }
+    }
+    else if (choice == 4) {
+        int maxDuration = findLongestTalkDuration(entries);  // ищем максимальную длительность
+        std::string formatted = formatDuration(maxDuration); // форматируем как чч:мм
+        std::cout << "Самый длинный доклад: " << formatted << "\n";
     }
     else {
         std::cout << "Неверный выбор.\n";

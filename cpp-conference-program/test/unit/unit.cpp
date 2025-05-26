@@ -11,10 +11,11 @@ namespace unittestproject
     {
     public:
 
+
         TEST_METHOD(OneTalk)
         {
-            std::vector<ConferenceTalk> talks = {
-                {"Доклад 1", 70}
+            std::vector<ConferenceEntry> talks = {
+                {10, 0, 11, 10, "Иванов", "Иван", "Иванович", "Доклад 1", "10:00", "11:10"}
             };
             int result = findLongestTalkDuration(talks);
             Assert::AreEqual(70, result);
@@ -22,10 +23,10 @@ namespace unittestproject
 
         TEST_METHOD(MultipleTalks)
         {
-            std::vector<ConferenceTalk> talks = {
-                {"Доклад 1", 45},
-                {"Доклад 2", 110},
-                {"Доклад 3", 85}
+            std::vector<ConferenceEntry> talks = {
+                {10, 0, 10, 45, "Смирнов", "Олег", "Петрович", "Доклад 1", "10:00", "10:45"},  
+                {11, 0, 12, 50, "Сидоров", "Антон", "Игоревич", "Доклад 2", "11:00", "12:50"}, 
+                {13, 0, 14, 25, "Петров", "Алексей", "Дмитриевич", "Доклад 3", "13:00", "14:25"} 
             };
             int result = findLongestTalkDuration(talks);
             Assert::AreEqual(110, result);
@@ -33,12 +34,12 @@ namespace unittestproject
 
         TEST_METHOD(EmptyList)
         {
-            std::vector<ConferenceTalk> talks = {};
+            std::vector<ConferenceEntry> talks = {};
             int result = findLongestTalkDuration(talks);
             Assert::AreEqual(0, result);
         }
         TEST_METHOD(TestMethod1) {
-            std::vector<ConferenceTalk> talks = {};
+            std::vector<ConferenceEntry> talks = {};
             int result = findLongestTalkDuration(talks);
             Assert::AreNotEqual(result, 5); // Пример теста, который ожидает ненулевой результат
         }

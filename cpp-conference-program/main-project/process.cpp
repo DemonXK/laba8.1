@@ -1,19 +1,30 @@
 #include "processing.h"
 #include <sstream>
 #include <iomanip>
+#include "conference_talk.h"
 
-// Возвращает максимальную продолжительность
-int findLongestTalkDuration(const std::vector<ConferenceTalk>& talks) {
-    int maxDuration = 0;
-    for (const auto& talk : talks) {
-        if (talk.durationMinutes > maxDuration) {
-            maxDuration = talk.durationMinutes;
-        }
-    }
-    return maxDuration;
+
+int parseTimeToMinutes(const std::string& timeStr) {
+    int hours, minutes;
+    char colon;
+    std::istringstream iss(timeStr);
+    iss >> hours >> colon >> minutes;
+    return hours * 60 + minutes;
 }
 
-// Преобразует минуты в формат чч:мм
+int findLongestTalkDuration(const std::vector<ConferenceEntry>& entries) {
+    int maxDuration = 0;
+    for (const auto& e : entries) {
+        int start = e.startHour * 60 + e.startMinute;
+        int end = e.endHour * 60 + e.endMinute;
+        int duration = end - start;
+        if (duration > maxDuration)
+            maxDuration = duration;
+    }
+    return maxDuration;
+
+}
+
 std::string formatDuration(int minutes) {
     int hours = minutes / 60;
     int mins = minutes % 60;
