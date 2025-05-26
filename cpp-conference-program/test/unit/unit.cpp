@@ -41,12 +41,13 @@ namespace unittestproject
         TEST_METHOD(TestMethod1) {
             std::vector<ConferenceEntry> talks = {};
             int result = findLongestTalkDuration(talks);
-            Assert::AreNotEqual(result, 5); // Пример теста, который ожидает ненулевой результат
+            Assert::AreNotEqual(result, 5);
         }
+
 
         TEST_METHOD(FormattedTime)
         {
-            int minutes = 135;
+            int minutes = -135;
             std::string result = formatDuration(minutes);
             Assert::AreEqual(std::string("02:15"), result);
         }
