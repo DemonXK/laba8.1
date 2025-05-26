@@ -12,7 +12,7 @@ int main() {
     std::cout << "2. Все доклады длительностью > 15 минут\n";
     std::cout << "3. Сортировка докладов\n";
     std::cout << "Выберите действие: ";
-
+    //test
     int choice;
     std::cin >> choice;
 

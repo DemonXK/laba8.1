@@ -1,8 +1,8 @@
-// file_reader.cpp
+
 #include "file_reader.h"
 #include <fstream>
 #include <sstream>
-
+//обратобка файла
 std::vector<ConferenceEntry> readDataFromFile(const std::string& filename) {
     std::vector<ConferenceEntry> entries;
     std::ifstream file(filename);
